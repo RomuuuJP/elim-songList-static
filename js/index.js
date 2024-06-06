@@ -41,6 +41,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	var progress = document.getElementById("progress");
 
 	playButton.addEventListener("click", function() {
+		pauseButton.style.display = 'block';
+		stopButton.style.display = 'block';
 		audio.play();
 	});
 

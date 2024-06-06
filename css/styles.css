@@ -152,3 +152,9 @@ header {
 #singer-details {
 	margin-top:5px;
 }
+#pauseButton {
+	display: none;
+}
+#stopButton{
+	display: none;
+}

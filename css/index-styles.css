@@ -30,13 +30,11 @@ button {
 }
 
 #prevBtn {
-  top: 12%;
-  left: 10px;
+  left: 2px;
   font-size: 300%;
 }
 
 #nextBtn {
-  top: 12%;
-  right: 10px;
+  right: 2px;
   font-size: 300%;
 }
