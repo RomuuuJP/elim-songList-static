@@ -1,0 +1,42 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#iframe-container {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+#prevBtn {
+  top: 12%;
+  left: 10px;
+  font-size: 300%;
+}
+
+#nextBtn {
+  top: 12%;
+  right: 10px;
+  font-size: 300%;
+}
