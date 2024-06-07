@@ -1,28 +1,30 @@
 :root {
-	--background-color: #f5f5f5;
+	--background-color: url('../image/background-image.png');
 	--text-color: #333	;
 	--header-background-color: rgba(220, 243, 232, 0.7);
 	--container-background-color: rgba(255, 255, 2	55, 0.8);
 	--item-background-color: rgba(255, 255, 255, 0.7);
 	--button-background-color: rgba(92, 155, 124, 0.7);	
-	--progress-bar-color: rgba(70, 126, 98, 0.7);	
+	--progress-bar-color: rgba(70, 126, 98, 0.7);
+	--search-box-color: white;
 }		
 
 [data-theme="dark"] {
-	--background-color: #333;
+	--background-color: url('../image/background-image-dark.png');
 	--text-color: #f5f5f5;
 	--header-background-color: rgba(0, 0, 0, 0.7);
 	--container-background-color: rgba(50, 50, 50, 0.8);
 	--item-background-color: rgba(50, 50, 50, 0.7);
 	--button-background-color: rgba(50, 50, 50, 0.7);
 	--progress-bar-color: #f5f5f5;
+	--search-box-color: rgba(88, 88, 88, 0.7);
 }
 
 body {
 	font-family: 'Arial', sans-serif;
 	margin: 0;
 	padding: 0;
-	background: var(--background-color) url('../image/background-image.png');
+	background: var(--background-color);
     background-position: top left;
     background-attachment: fixed;
     transition: filter 0.5s ease;
@@ -85,6 +87,10 @@ header {
 	width: calc(60% - 1rem);
 	border-radius: 5px;
 	border: none;
+	background-color: var(--search-box-color);
+}
+#searchBox::placeholder {
+	color: var(--text-color);
 }
 .song-list {
 	display: flex;
@@ -120,7 +126,7 @@ header {
 	margin-top: 1rem;
 }
 .audio-controls {
-	display: flex;
+	display: 2;
 	align-items: center;
 	gap: 0.5rem;
 }
