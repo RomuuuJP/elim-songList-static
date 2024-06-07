@@ -1,4 +1,4 @@
-const pages = ['singer/haiyy.html', 'singer/test.html']; // Add your page URLs here
+const pages = ['singer/haiyy.html', 'singer/xiaoyu.html', 'singer/qiuzfy.html', 'singer/zipdsbb.html']; // Add your page URLs here
 let currentPageIndex;
 let touchstartX = 0;
 let touchendX = 0;
