@@ -1,5 +1,5 @@
 :root {
-	--background-color: url('../image/background-image.png');
+	--background-brightness: brightness(100%);
 	--text-color: #333	;
 	--header-background-color: rgba(220, 243, 232, 0.7);
 	--container-background-color: rgba(255, 255, 2	55, 0.8);
@@ -7,10 +7,11 @@
 	--button-background-color: rgba(92, 155, 124, 0.7);	
 	--progress-bar-color: rgba(70, 126, 98, 0.7);
 	--search-box-color: white;
+	--header-font-color: rgba(92, 155, 124, 0.7);	
 }		
 
 [data-theme="dark"] {
-	--background-color: url('../image/background-image-dark.png');
+	--background-brightness: brightness(50%);
 	--text-color: #f5f5f5;
 	--header-background-color: rgba(0, 0, 0, 0.7);
 	--container-background-color: rgba(50, 50, 50, 0.8);
@@ -18,22 +19,35 @@
 	--button-background-color: rgba(50, 50, 50, 0.7);
 	--progress-bar-color: #f5f5f5;
 	--search-box-color: rgba(88, 88, 88, 0.7);
+	--header-font-color: #f5f5f5;
 }
 
+body::before {
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: url('../image/background-image.png');
+	background-repeat: repeat; /* 设置背景图像重复 */
+	background-size: 25%; /* 保持原始尺寸 */
+	transition: filter 0.3s ease;
+	filter: var(--background-brightness);  /* 降低亮度 */
+	z-index: -1; /* 确保背景图在所有内容的后面 */
+}
 body {
 	font-family: 'Arial', sans-serif;
 	margin: 0;
 	padding: 0;
-	background: var(--background-color);
-    background-position: top left;
-    background-attachment: fixed;
-    transition: filter 0.5s ease;
 	color: var(--text-color);
 }
 header {
 	background: var(--header-background-color);
 	backdrop-filter: blur(10px);
-	color: 	rgba(92, 155, 124, 0.7);	
+	color: 	var(--header-font-color);
 	text-align: center;
 	padding: 1rem 0;
 	position: relative;
@@ -83,7 +97,6 @@ header {
 #searchBox {
 	display: block;
 	padding: 0.5rem;
-	margin-top: 1rem;
 	width: calc(60% - 1rem);
 	border-radius: 5px;
 	border: none;
@@ -163,4 +176,26 @@ header {
 }
 #stopButton{
 	display: none;
+}
+
+a {
+    text-decoration: none; /* 去除下划线 */
+    color: inherit; /* 继承父元素的颜色 */
+    cursor: pointer; /* 将鼠标指针设置为手形 */
+}
+
+a:visited {
+    color: inherit; /* 访问过的链接颜色 */
+}
+
+a:hover {
+    text-decoration: none; /* 悬停时去除下划线 */
+}
+
+a:active {
+    color: inherit; /* 活动链接颜色 */
+}
+
+a:focus {
+    outline: none; /* 去除聚焦时的外边框 */
 }

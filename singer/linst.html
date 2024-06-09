@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elim-歌手歌单</title>
+    <link rel="stylesheet" href="../css/styles.css">
+	<link rel="icon" href="../favicon.png" type="image/x-icon">
+</head>
+<body>
+	<style>
+	</style>
+	<script src="../js/index.js"></script>
+	<script>
+	</script>
+    <header>
+        <div class="header-buttons-area">
+            <div class="header-buttons header-left">
+                <button class="button" onclick="location.href='../index.html';">返回主页</button>
+            </div>
+            <div class="header-buttons header-right">
+                <button class="button" onclick="toggleTheme()">明暗主题切换</button>
+                <button class="button" onclick="openInNewTab('https://qm.qq.com/q/EmjUYIm0YE')">加入Elim顾客群</button>
+            </div>
+        </div>
+        <h1 id="singer">林少天</h1> <!-- 要修改 -->
+        <h4 id="singer-details">华语流行</h4> <!-- 要修改 -->
+        <div class="audio-player">
+            <audio id="audio" src="../audios/林少天.mp3" preload="metadata"></audio> <!-- 要修改 -->
+            <div class="audio-controls">
+                <button id="playButton" class="button">播放试听</button>
+                <button id="pauseButton" class="button">暂停</button>
+                <button id="stopButton" class="button">停止</button>
+            </div>
+        </div>
+    </header>
+    <div id="progressBar" class="progress-bar">
+        <div id="progress" class="progress"></div>
+    </div>
+    <div class="container">
+        <div class="buttons">
+			<input type="text" id="searchBox" onkeyup="filterSongs()" placeholder="请输入关键字进行检索...">
+        </div>
+        <ul class="song-list" id="songList">
+            <li class="song-item">
+                <div class="song-title">笼</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">雨蝶</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">情结</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">红玫瑰</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">说散就散</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">孤独颂歌</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">摩登爱情</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">字字句句</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">易燃易爆炸</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">月亮不曾奔我而来</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">我在人民广场吃炸鸡</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">紫</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">谁</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">枫</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">骗</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">我认</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">我要</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">夜猫</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">妥协</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">慢冷</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">虚拟</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">探窗</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">赐伤</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">用情</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">如愿</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">喂猪</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">拜拜</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">背叛</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">嘉宾</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">忙着</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">男孩</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">年轮</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">情歌</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">善变</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">伤痕</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">她说</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">安静</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">体面</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">晴天</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">听海</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">晚婚</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">叶子</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">雨天</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">走马</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">大海</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">后来</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">宁夏</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">暖暖</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">心动</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">花海</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">退后</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">记得</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">搁浅</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">遇见</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">画心</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">房间</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">可能</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">称职</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">囚鸟</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">骗子</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">第一次</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">黄昏晓</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">桃花诺</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">小幸运</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">单人券</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">第一天</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">海海海</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">好想你</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">讲真的</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">九张机</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">空白格</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">门没锁</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">七月上</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">日不落</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">若把你</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">下一秒</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">小情歌</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">萱草花</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">从前说</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">好可惜</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">大声唱</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">欧若拉</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">喜欢你（陈洁仪版本）</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">明明就</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">龙卷风</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">七里香</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">老男孩</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Plan B</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Nobody</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">天外来物</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">情非得已</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">西楼儿女</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">爱都爱了</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">残酷月光</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">曾经你说</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">匆匆那年</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">佛系少女</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">胡桃夹子</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">哭笑不得</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">玫瑰往事</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">漠河舞厅</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">你不明白</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">认真的雪</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">星空剪影</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">修炼爱情</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">一吻之间</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">只要平凡</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">鬼迷心窍</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">心有独钟</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">一路向北</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">天地龙鳞</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">爱的魔法</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">到此为止</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">失恋无罪</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Super star</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">被驯服的象</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">不要对他说</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">化风行万里</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">离别开出花</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">姑娘在远方</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">可念不可说</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">别找我麻烦</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">会呼吸的痛</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">旅行中忘记</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">你给我听好</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">盛夏的果实</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">小手拉大手</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">心愿便利贴</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">一直很安静</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">至少还有你</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">终于等到你</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">外面的世界</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">没那么简单</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">最长的电影</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">背对背拥抱</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">红色高跟鞋</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">第二杯半价</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">假如爱有天意</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">阿拉斯加海湾</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">簇拥烈日的花</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">流着泪说分手</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">我可以忘记你</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">我是我的情人</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">雪落下的声音</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">一滴泪的时间</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">永不失联的爱</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">说好的幸福呢</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">99次我爱他</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">我不配你要的</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">你不知道的事</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">野草与栀子花</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Aways Online</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">我知道你很难过</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">多远都要在一起</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">给电影人的情书</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">晴天，告白气球（周杰伦串烧）</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">如果这就是爱情</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">这世界那么多人</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">你就不要想起我</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">对不起，我爱你</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">My heart will go on</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">回不去的何止时间</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">给我一个理由忘记</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">亲爱的，那不是爱情</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">布鲁塞尔傍晚的列车</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">我希望在你的爱情里</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">爱上你等于爱上了寂寞</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">别再问我什么是迪斯科</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">其实，我就在你方圆几里（薛之谦串烧）</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">要不然我们就这样一万年</div>
+                <div class="song-artist"></div>
+            </li>
+            <!-- 贴歌曲 -->
+        </ul>
+    </div>
+</body>
+</html>

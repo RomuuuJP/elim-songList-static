@@ -18,15 +18,6 @@ function filterSongs() {
 	}
 }
 
-function toggleTheme() {
-	var body = document.body;
-	if (body.getAttribute('data-theme') === 'dark') {
-		body.removeAttribute('data-theme');
-	} else {
-		body.setAttribute('data-theme', 'dark');
-	}
-}
-
 function openInNewTab(url) {
 	var win = window.open(url, '_blank');
 	win.focus();
@@ -66,4 +57,21 @@ document.addEventListener("DOMContentLoaded", function() {
 		var percentage = offsetX / progressBar.offsetWidth;
 		audio.currentTime = percentage * audio.duration;
 	});
+});
+
+
+function toggleTheme() {
+    // 获取当前主题
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    // 判断并切换主题
+    const newTheme = (currentTheme === 'dark') ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    // 将新主题存储在 Local Storage 中
+    localStorage.setItem('theme', newTheme);
+}
+
+// 页面加载时应用存储的主题
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'light'; // 默认主题为 light
+    document.documentElement.setAttribute('data-theme', savedTheme);
 });
