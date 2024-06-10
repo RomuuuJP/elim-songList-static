@@ -75,3 +75,44 @@ document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('theme') || 'light'; // 默认主题为 light
     document.documentElement.setAttribute('data-theme', savedTheme);
 });
+
+// 定义左滑返回
+let touchstartX = 0;
+let touchendX = 0;
+
+document.addEventListener('touchstart', function(event) {
+	touchstartX = event.changedTouches[0].screenX;
+  }, false);
+  
+document.addEventListener('touchend', function(event) {
+touchendX = event.changedTouches[0].screenX;
+handleGesture();
+}, false); 
+
+function handleGesture() {
+	if (touchendX+500 < touchstartX) {
+		window.history.forward()
+	}
+
+	if (touchendX-500 > touchstartX) {
+		window.history.back()
+	}
+}
+
+function toggleDropdown() {
+	var content = document.getElementById("dropdownContent");
+	content.classList.toggle("show");
+}
+
+// 点击页面其他地方时隐藏下拉菜单
+window.onclick = function(event) {
+	if (!event.target.matches('#drop-down-button')) {
+		var dropdowns = document.getElementsByClassName("dropdown-content");
+		for (var i = 0; i < dropdowns.length; i++) {
+			var openDropdown = dropdowns[i];
+			if (openDropdown.classList.contains("show")) {
+				openDropdown.classList.remove("show");
+			}
+		}
+	}
+}

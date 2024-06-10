@@ -20,9 +20,12 @@
                 <button class="button" onclick="toggleTheme()">明暗切换</button>
             </div>
             <div class="header-buttons header-right">
-                <button class="button" onclick="openInNewTab('https://qm.qq.com/q/EmjUYIm0YE')">顾客群</button>
-                <button class="button" onclick="openInNewTab('https://kook.top/HsWZg6')">KOOK</button>
-                <button class="button" onclick="openInNewTab('https://oopz.cn/i/FklZfv')">OOPZ(试运营)</button>
+                <button class="button" id="drop-down-button" onclick="toggleDropdown()">∨更多信息∨</button>
+                    <div id="dropdownContent" class="dropdown-content">
+                        <button onclick="openInNewTab('https://qm.qq.com/q/EmjUYIm0YE')">顾客群</button>
+                        <button onclick="openInNewTab('https://kook.top/HsWZg6')">KOOK</button>
+                        <button onclick="openInNewTab('https://oopz.cn/i/FklZfv')">OOPZ</button>
+                    </div>
             </div>
         </div>
         <h1 id="singer">秋泽枫月（喧叙词）</h1>
