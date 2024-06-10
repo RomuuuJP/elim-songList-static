@@ -1,5 +1,5 @@
 :root {
-	--background-brightness: brightness(100%);
+	--background-brightness: none;
 	--text-color: #333	;
 	--header-background-color: rgba(220, 243, 232, 0.7);
 	--container-background-color: rgba(255, 255, 2	55, 0.8);
@@ -7,7 +7,8 @@
 	--button-background-color: rgba(92, 155, 124, 0.7);	
 	--progress-bar-color: rgba(70, 126, 98, 0.7);
 	--search-box-color: white;
-	--header-font-color: rgba(92, 155, 124, 0.7);	
+	--header-font-color: rgba(92, 155, 124, 0.7);
+	--transition-filter: filter 1s ease;
 }		
 
 [data-theme="dark"] {
@@ -20,6 +21,7 @@
 	--progress-bar-color: #f5f5f5;
 	--search-box-color: rgba(88, 88, 88, 0.7);
 	--header-font-color: #f5f5f5;
+	--transition-filter: none;
 }
 
 body::before {
@@ -34,7 +36,7 @@ body::before {
 	background: url('../image/background-image.png');
 	background-repeat: repeat; /* 设置背景图像重复 */
 	background-size: 25%; /* 保持原始尺寸 */
-	transition: filter 0.3s ease;
+	transition: var(--transition-filter);
 	filter: var(--background-brightness);  /* 降低亮度 */
 	z-index: -1; /* 确保背景图在所有内容的后面 */
 }
