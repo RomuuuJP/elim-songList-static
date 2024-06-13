@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elim-歌手歌单</title>
+    <link rel="stylesheet" href="../css/styles.css">
+	<link rel="icon" href="../favicon.png" type="image/x-icon">
+</head>
+<body>
+	<style>
+	</style>
+	<script src="../js/index.js"></script>
+	<script>
+	</script>
+    <header>
+        <div class="header-buttons-area">
+            <div class="header-buttons header-left">
+                <button class="button" onclick="location.href='../index.html';">返回主页</button>
+                <button class="button" onclick="toggleTheme()">明暗切换</button>
+            </div>
+            <div class="header-buttons header-right">
+                <button class="button" id="drop-down-button" onclick="toggleDropdown()">∨更多信息∨</button>
+                    <div id="dropdownContent" class="dropdown-content">
+                        <button onclick="openInNewTab('https://qm.qq.com/q/EmjUYIm0YE')">顾客群</button>
+                        <button onclick="openInNewTab('https://kook.top/HsWZg6')">KOOK</button>
+                        <button onclick="openInNewTab('https://oopz.cn/i/FklZfv')">OOPZ</button>
+                    </div>
+            </div>
+        </div>
+        <h1 id="singer">紫皮大蒜波比</h1>
+        <h4 id="singer-details">粤语，国语，少量日文，少量英文，女生</h4>
+        <div class="audio-player">
+            <audio id="audio" src="../audios/紫皮大蒜波比.mp3" preload="metadata"></audio>
+            <div class="audio-controls">
+                <button id="playButton" class="button">播放试听</button>
+                <button id="pauseButton" class="button">暂停</button>
+                <button id="stopButton" class="button">停止</button>
+            </div>
+        </div>
+    </header>
+    <div id="progressBar" class="progress-bar">
+        <div id="progress" class="progress"></div>
+    </div>
+    <div class="container">
+        <div class="buttons">
+			<input type="text" id="searchBox" onkeyup="filterSongs()" placeholder="请输入关键字进行检索...">
+        </div>
+        <ul class="song-list" id="songList">   
+            <li class="song-item">
+                <div class="song-title">画-邓紫棋</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">相思-毛阿敏</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">雨爱-杨丞琳</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">大眠-王心凌</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">慢冷-梁静茹</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">年轮说-杨丞琳</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">九万字-黄诗扶</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">第三人称-戚薇</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">梦的光点-王心凌</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">你啊你啊-魏如萱</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">你给我听好-陈奕迅</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">SUN-星野源</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">喜劇-星野源</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Departures - EGOIST</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">雨声残響</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">赏月独奏会</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">暧昧劣情Lover</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">想变得可爱</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">多情善感的愛慕心</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">我的世界已坠入爱河</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">情人-邓紫棋ver.</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">春秋-张敬轩</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">喜欢你-邓紫棋ver.</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">处处吻-杨干嬅</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">啜泣-容祖儿</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">喜帖街-谢安琪</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">天窗-容祖儿</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">好心分手-卢巧音&王力宏(可合唱)</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">心淡-容祖儿</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">一夜倾情- 卫兰ver.</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">飘雪-陈慧娴</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">千千阙歌-陈慧娴</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">梦伴-李悦君</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">街灯晚餐-卫兰</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">（推）红茶馆-陈慧娴</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">习惯失恋-容祖儿</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">爱不完-卫兰ver.</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">是但求其爱-陈奕迅</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">回电我-卫兰</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">爱与痛的边缘-王菲</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">错过你一卫兰</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">（推）这么近（那么远）-容祖儿</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">（推）Flow- 祖堅正慶</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Say So- Doja Cat</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Chunky - Bruno Mars</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">If I Knew - Bruno Mars</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">That’ S What I Like- Bruno Mars</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Leave The Door Open - Bruno Mars</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Needy - Ariana Grande</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Paris In The Rain - Lauv</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">I love you 3000 - Stephanie Poetri</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Idontwannabeyouanymore - Billie Elish</div>
+                <div class="song-artist"></div>
+            </li>            
+            <!-- More songs can be added here -->
+        </ul>
+    </div>
+</body>
+</html>

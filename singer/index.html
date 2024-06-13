@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elim-歌手歌单</title>
+    <link rel="stylesheet" href="../css/styles.css">
+	<link rel="icon" href="../favicon.png" type="image/x-icon">
+</head>
+<body>
+	<style>
+	</style>
+	<script src="../js/index.js"></script>
+	<script src="../js/singer.js"></script>
+	<script>
+	</script>
+    <header>
+        <div class="header-buttons-area">
+            <div class="header-buttons header-left">
+                <button class="button" onclick="location.href='..';">返回主页</button>
+                <button class="button" onclick="toggleTheme()">明暗切换</button>
+            </div>
+            <div class="header-buttons header-right">
+                <button class="button" id="drop-down-button" onclick="toggleDropdown()">∨更多信息∨</button>
+                    <div id="dropdownContent" class="dropdown-content">
+                        <button onclick="openInNewTab('https://qm.qq.com/q/EmjUYIm0YE')">顾客群</button>
+                        <button onclick="openInNewTab('https://kook.top/HsWZg6')">KOOK</button>
+                        <button onclick="openInNewTab('https://oopz.cn/i/FklZfv')">OOPZ</button>
+                    </div>
+            </div>
+        </div>
+        <h1 id="singer">读取中</h1>
+        <h4 id="singer-details">内容获取中</h4>
+        <div class="audio-player">
+            <audio id="audio" preload="metadata"></audio>
+            <div class="audio-controls">
+                <button id="playButton" class="button">播放试听</button>
+                <button id="pauseButton" class="button">暂停</button>
+                <button id="stopButton" class="button">停止</button>
+            </div>
+        </div>
+    </header>
+    <div id="progressBar" class="progress-bar">
+        <div id="progress" class="progress"></div>
+    </div>
+    <div class="container">
+        <div class="buttons">
+			<input type="text" id="searchBox" onkeyup="filterSongs()" placeholder="请输入关键字进行检索...">
+        </div>
+        <ul class="song-list" id="songList">   
+            <li class="song-item">
+                <div class="song-title">歌曲列表获取中</div>
+                <div class="song-artist"></div>
+            </li>
+            <!-- More songs can be added here -->
+        </ul>
+    </div>
+</body>
+</html>

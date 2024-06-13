@@ -1,0 +1,8 @@
+{
+	"singer": "template", 
+	"detail": "template",
+    "url": "singer?singer=template",
+    "audio": "../audios/template.mp3",
+	"songs": [
+        {"title": "template", "artist": ""}
+    ]}

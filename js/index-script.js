@@ -1,50 +1,47 @@
-const pages = ['singer/haiyy.html', 'singer/xiaoyu.html', 'singer/qiuzfy.html', 'singer/zipdsbb.html', 'singer/linst.html']; // Add your page URLs here
-let currentPageIndex;
-let touchstartX = 0;
-let touchendX = 0;
 
-function getRandomPage() {
-  currentPageIndex = Math.floor(Math.random() * pages.length);
-  return pages[currentPageIndex];
-}
+async function loadJSON() {
+  try {
+      const jsonFileName  = 'json/index.json'
 
-function prevPage() {
-  currentPageIndex = (currentPageIndex === 0) ? pages.length - 1 : currentPageIndex - 1;
-  document.getElementById('iframe-container').src = pages[currentPageIndex];
-}
+      const response = await fetch(jsonFileName);
+      const data = await response.json();
 
-function nextPage() {
-  currentPageIndex = (currentPageIndex === pages.length - 1) ? 0 : currentPageIndex + 1;
-  document.getElementById('iframe-container').src = pages[currentPageIndex];
-}
+      const title = document.getElementById('singer')
+      const details = document.getElementById('singer-details')
+      const detailsSub = document.getElementById('singer-details-s')
+      const singerList = document.getElementById('songList');
+      title.textContent = ''; // 清空现有内容
+      details.textContent = ''; // 清空现有内容
+      detailsSub.textContent = ''; // 清空现有内容
+      singerList.innerHTML = ''; // 清空现有内容
 
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'ArrowLeft') {
-    prevPage();
-  } else if (event.key === 'ArrowRight') {
-    nextPage();
-  }
-});
+      title.textContent = data.title;
+      details.textContent = data.detail;
+      detailsSub.textContent = data.detailSub;
+      
+      data.singerList.forEach(item => {
+          const li = document.createElement('li');
+          li.className = 'song-item'; // 添加class
 
-window.onload = function() {
-  document.getElementById('iframe-container').src = getRandomPage();
-};
+          const titleDiv = document.createElement('div');
+          titleDiv.className = 'song-title';
+          titleDiv.textContent = item.title;
+          const artistDiv = document.createElement('div');
+          artistDiv.className = 'song-artist';
+          artistDiv.textContent = item.des;
 
-document.addEventListener('touchstart', function(event) {
-  touchstartX = event.changedTouches[0].screenX;
-}, false);
+          const a = document.createElement('a');
+          a.href = item.url; // 添加class
 
-document.addEventListener('touchend', function(event) {
-  touchendX = event.changedTouches[0].screenX;
-  handleGesture();
-}, false); 
+          a.appendChild(titleDiv);
+          a.appendChild(artistDiv);
+          li.appendChild(a);
 
-function handleGesture() {
-  if (touchendX < touchstartX) {
-    nextPage();
-  }
-  
-  if (touchendX > touchstartX) {
-    prevPage();
+          singerList.appendChild(li);
+      });
+  } catch (error) {
+      console.error('Error loading JSON data:', error);
   }
 }
+
+window.onload = loadJSON;

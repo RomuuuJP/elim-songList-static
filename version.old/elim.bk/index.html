@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elim-歌手歌单</title>
+    <link rel="stylesheet" href="css/styles.css">
+	<link rel="icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+	<style>
+	</style>
+	<script src="js/index.js"></script>
+	<script>
+	</script>
+    <header>
+        <div class="header-buttons-area">
+            <div class="header-buttons header-left">
+                <button class="button" onclick="toggleTheme()">明暗切换</button>
+            </div>
+            <div class="header-buttons header-right">
+                <button class="button" id="drop-down-button" onclick="toggleDropdown()">∨更多信息∨</button>
+                    <div id="dropdownContent" class="dropdown-content">
+                        <button onclick="openInNewTab('https://qm.qq.com/q/EmjUYIm0YE')">顾客群</button>
+                        <button onclick="openInNewTab('https://kook.top/HsWZg6')">KOOK</button>
+                        <button onclick="openInNewTab('https://oopz.cn/i/FklZfv')">OOPZ</button>
+                    </div>
+            </div>
+        </div>
+        <h1 id="singer">Elim-歌手列表</h1> <!-- 要修改 -->
+        <h4 id="singer-details">晨曦王座-高脚孤丘24区·42号 周一周五营业</h4> <!-- 要修改 -->
+        <h5 id="singer-details">网站目前还在开发测试阶段，欢迎顾客群反馈问题,持续更新中！更多歌手信息请查看kook或顾客群咨询~</h5> <!-- 要修改 -->
+    </header>
+    </div>
+    <div class="container">
+        <div class="buttons">
+			<input type="text" id="searchBox" onkeyup="filterSongs()" placeholder="请输入关键字进行检索...">
+        </div>
+        <ul class="song-list" id="songList">
+            <li class="song-item">
+                <a href="singer/haiyy.html">
+                    <div class="song-title">海月月</div>
+                    <div class="song-artist">男歌手，擅长日语，周董的歌，以及擅长模仿丁真。</div>
+                </a>
+            </li>
+            <li class="song-item">
+                <a href="singer/xiaoyu.html">
+                    <div class="song-title">恋如雨止</div>
+                    <div class="song-artist">女歌手，擅长华语流行。</div>
+                </a>
+            </li>
+            <li class="song-item">
+                <a href="singer/linst.html">
+                    <div class="song-title">林少天</div>
+                    <div class="song-artist">女歌手，擅长华语流行。</div>
+                </a>
+            </li>
+            <li class="song-item">
+                <a href="singer/qiuzfy.html">
+                    <div class="song-title">秋泽枫月（喧叙词）</div>
+                    <div class="song-artist">女歌手，擅长日文，英文，中文，FF14，是群妈妈。</div>
+                </a>
+            </li>
+            <li class="song-item">
+                <a href="singer/zipdsbb.html">
+                    <div class="song-title">紫皮大蒜波比</div>
+                    <div class="song-artist">女歌手，擅长粤语，国语，少量日文，少量英文。</div>
+                </a>
+            </li>
+            <li class="song-item">
+                <a href="singer/tangtang.html">
+                    <div class="song-title">糖糖（谴呪）</div>
+                    <div class="song-artist">女歌手，ボカロ，擅长日文曲，少量中文，英文曲。</div>
+                </a>
+            </li>
+            <li class="song-item">
+                <a href="singer/niunmmb.html">
+                    <div class="song-title">牛奶绵绵冰</div>
+                    <div class="song-artist">男歌手，为热血日文曲而生的男人。</div>
+                </a>
+            </li>
+            <!-- 贴歌曲 -->
+        </ul>
+    </div>
+</body>
+</html>

@@ -11,6 +11,7 @@
 	<style>
 	</style>
 	<script src="js/index.js"></script>
+	<script src="js/index-script.js"></script>
 	<script>
 	</script>
     <header>
@@ -27,10 +28,21 @@
                     </div>
             </div>
         </div>
-        <h1 id="singer">Elim-歌手列表</h1> <!-- 要修改 -->
-        <h4 id="singer-details">晨曦王座-高脚孤丘24区·42号 周一周五营业</h4> <!-- 要修改 -->
-        <h5 id="singer-details">网站目前还在开发测试阶段，欢迎顾客群反馈问题,持续更新中！更多歌手信息请查看kook或顾客群咨询~</h5> <!-- 要修改 -->
+        <h1 id="singer">读取中</h1> <!-- 要修改 -->
+        <h4 id="singer-details">读取中</h4> <!-- 要修改 -->
+        <h5 id="singer-details-s">读取中</h5> <!-- 要修改 -->
+        <div class="audio-player" style="display: none;">
+            <audio id="audio" preload="metadata"></audio>
+            <div class="audio-controls">
+                <button id="playButton" class="button">播放试听</button>
+                <button id="pauseButton" class="button">暂停</button>
+                <button id="stopButton" class="button">停止</button>
+            </div>
+        </div>
     </header>
+    <div id="progressBar" class="progress-bar" style="display: none;">
+        <div id="progress" class="progress"></div>
+    </div>
     </div>
     <div class="container">
         <div class="buttons">
@@ -38,33 +50,9 @@
         </div>
         <ul class="song-list" id="songList">
             <li class="song-item">
-                <a href="singer/haiyy.html">
-                    <div class="song-title">海月月</div>
-                    <div class="song-artist">男歌手，擅长日语，周董的歌，以及擅长模仿丁真。</div>
-                </a>
-            </li>
-            <li class="song-item">
-                <a href="singer/xiaoyu.html">
-                    <div class="song-title">恋如雨止</div>
-                    <div class="song-artist">女歌手，擅长华语流行。</div>
-                </a>
-            </li>
-            <li class="song-item">
-                <a href="singer/linst.html">
-                    <div class="song-title">林少天</div>
-                    <div class="song-artist">女歌手，擅长华语流行。</div>
-                </a>
-            </li>
-            <li class="song-item">
-                <a href="singer/qiuzfy.html">
-                    <div class="song-title">秋泽枫月（喧叙词）</div>
-                    <div class="song-artist">女歌手，擅长日文，英文，中文，FF14，是群妈妈。</div>
-                </a>
-            </li>
-            <li class="song-item">
-                <a href="singer/zipdsbb.html">
-                    <div class="song-title">紫皮大蒜波比</div>
-                    <div class="song-artist">女歌手，擅长粤语，国语，少量日文，少量英文。</div>
+                <a href="">
+                    <div class="song-title">读取中</div>
+                    <div class="song-artist"></div>
                 </a>
             </li>
             <!-- 贴歌曲 -->

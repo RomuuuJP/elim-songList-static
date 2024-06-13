@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elim-歌手歌单</title>
+    <link rel="stylesheet" href="../css/styles.css">
+	<link rel="icon" href="../favicon.png" type="image/x-icon">
+</head>
+<body>
+	<style>
+	</style>
+	<script src="../js/index.js"></script>
+	<script>
+	</script>
+    <header>
+        <div class="header-buttons-area">
+            <div class="header-buttons header-left">
+                <button class="button" onclick="location.href='../index.html';">返回主页</button>
+                <button class="button" onclick="toggleTheme()">明暗切换</button>
+            </div>
+            <div class="header-buttons header-right">
+                <button class="button" id="drop-down-button" onclick="toggleDropdown()">∨更多信息∨</button>
+                    <div id="dropdownContent" class="dropdown-content">
+                        <button onclick="openInNewTab('https://qm.qq.com/q/EmjUYIm0YE')">顾客群</button>
+                        <button onclick="openInNewTab('https://kook.top/HsWZg6')">KOOK</button>
+                        <button onclick="openInNewTab('https://oopz.cn/i/FklZfv')">OOPZ</button>
+                    </div>
+            </div>
+        </div>
+        <h1 id="singer">牛奶绵绵冰</h1>
+        <h4 id="singer-details">为热血日语曲而生的本店知名男歌手！</h4>
+        <div class="audio-player">
+            <audio id="audio" src="../audios/牛奶绵绵冰.mp3" preload="metadata"></audio>
+            <div class="audio-controls">
+                <button id="playButton" class="button">播放试听</button>
+                <button id="pauseButton" class="button">暂停</button>
+                <button id="stopButton" class="button">停止</button>
+            </div>
+        </div>
+    </header>
+    <div id="progressBar" class="progress-bar">
+        <div id="progress" class="progress"></div>
+    </div>
+    <div class="container">
+        <div class="buttons">
+			<input type="text" id="searchBox" onkeyup="filterSongs()" placeholder="请输入关键字进行检索...">
+        </div>
+        <ul class="song-list" id="songList">   
+            <li class="song-item">
+                <div class="song-title">Butterfly -《数码宝贝1》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Brave heart - 《数码宝贝1》进化曲</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">ターゲット~赤い衝撃~ -《数码宝贝2》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Break up！ -《数码宝贝2》进化曲</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">The Biggest Dreamer -《数码宝贝3》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">ウィーアー! - 《海贼王》OP1</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Sign - 《火影忍者》OP6</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">紅蓮華 - 《鬼灭之刃》OP1</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">ジョジョ~その血の運命 - 《JOJO的奇妙冒险第一部 幻影之血》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">STAND PROUD - 《JOJO的奇妙冒险第三部 星尘斗士》OP1</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">裏切り者のレクイエム - 《JOJO的奇妙冒险第五部 黄金之风》</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Overlap - 《游戏王：怪兽之决斗》OP5</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">明日への道～Going my way!! - 《游戏王：5D's 》OP5</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Clear Mind - 《游戏王：5D's 》插入曲</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">空色デイズ - 《天元突破 红莲螺岩》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">涙の種、笑顔の花 - 《天元突破 红莲螺岩》剧场版ED</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">創聖のアクエリオン - 《创圣的大天使》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">HEATS - 《真盖塔机器人 世界最后之日》OP2</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">前前前世 - 《你的名字》主题曲</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">夢灯籠 - 《你的名字》插入曲</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">君が好きだと叫びたい - 《灌篮高手》OP1</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">世界が終るまでは... - 《灌篮高手》ED2</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">God knows... - 《凉宫春日的忧郁》插入曲</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">DAN DAN 心魅かれてく - 《龙珠GT》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">インパーフェクト - 《SSSS.电光机王》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">明日、僕は君に会いに行く - 《世界第一初恋》ED</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">めざせポケモンマスター(目标是宝可梦大师) - 《精灵宝可梦》OP1</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">バトルフロンティア（战斗边疆） - 《精灵宝可梦 超世代》OP4</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">嘘 - 《钢之炼金术师FA》ED1</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">START:DASH!! - 《Lovelive！》第13话插入曲</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Dragon Soul - 《龙珠改》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">DT捨テル - 《伊克西翁传说DT》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">スカイクラッドの観测者 - 《命运石之门》游戏OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">现実という名の怪物と戦う者たち - 《食梦者》ED1</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">ふたつの鼓動と赤い罪 - 《吸血鬼骑士》OP1</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">ラブ・ドラマティック - 《辉夜大小姐想让我告白》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">届かない恋 - 《白色相簿2》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">ペガサス幻想 - 《圣斗士星矢》OP1</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Hello,world! - 《血界战线》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">空の箱 - 《GIRLS BAND CRY》插入曲</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">アカシア（金合欢） - 《精灵宝可梦》骨头社合作宣传曲</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">under the darkness - 《鬼畜眼鏡》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">TAKE ME HIGHER - 《迪迦奥特曼》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">ウルトラマンダイナ - 《戴拿奥特曼》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">ウルトラマンガイア! - 《盖亚奥特曼》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">仮面ライダーBLACK RX - 《假面骑士BLACK RX》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">仮面ライダークウガ! - 《假面骑士空我》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Justiφ's - 《假面骑士555》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Alive A life - 《假面骑士龙骑》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Revolution - 《假面骑士龙骑》生存形态插曲</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Climax Jump - 《假面骑士电王》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">SURPRISE-DRIVE - 《假面骑士Drive》OP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">爱言叶 - DECO*27</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">爱言叶Ⅱ - DECO*27</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">千本桜 - 黒うさP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">惑星ループ - Nayutan星人</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">PLANET - ラムジ</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">サリシノハラ（离去之原） - みきとP</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Pretender - Official髭男dism</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">新宝島 - sakanaction</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">当然是选择原谅她 - PoKeR_扑克</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">九九八十一 - 乌龟Sui</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">冬の花 - 宫本浩次</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">一般男性脱糞シリーズ - YYUT</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">OMMC - YYUT</div>
+                <div class="song-artist"></div>
+            </li>
+            <!-- More songs can be added here -->
+        </ul>
+    </div>
+</body>
+</html>

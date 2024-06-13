@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elim-歌手歌单</title>
+    <link rel="stylesheet" href="../css/styles.css">
+	<link rel="icon" href="../favicon.png" type="image/x-icon">
+</head>
+<body>
+	<style>
+	</style>
+	<script src="../js/index.js"></script>
+	<script>
+	</script>
+    <header>
+        <div class="header-buttons-area">
+            <div class="header-buttons header-left">
+                <button class="button" onclick="location.href='../index.html';">返回主页</button>
+                <button class="button" onclick="toggleTheme()">明暗切换</button>
+            </div>
+            <div class="header-buttons header-right">
+                <button class="button" id="drop-down-button" onclick="toggleDropdown()">∨更多信息∨</button>
+                    <div id="dropdownContent" class="dropdown-content">
+                        <button onclick="openInNewTab('https://qm.qq.com/q/EmjUYIm0YE')">顾客群</button>
+                        <button onclick="openInNewTab('https://kook.top/HsWZg6')">KOOK</button>
+                        <button onclick="openInNewTab('https://oopz.cn/i/FklZfv')">OOPZ</button>
+                    </div>
+            </div>
+        </div>
+        <h1 id="singer">糖糖（谴呪）</h1>
+        <h4 id="singer-details">ボカロ大好き，擅长日文曲，唱中/英文歌真的烂烂的；；十年唱歌无人晓，一朝配音天下知</h4>
+        <div class="audio-player">
+            <audio id="audio" src="../audios/糖糖.mp3" preload="metadata"></audio>
+            <div class="audio-controls">
+                <button id="playButton" class="button">播放试听</button>
+                <button id="pauseButton" class="button">暂停</button>
+                <button id="stopButton" class="button">停止</button>
+            </div>
+        </div>
+    </header>
+    <div id="progressBar" class="progress-bar">
+        <div id="progress" class="progress"></div>
+    </div>
+    <div class="container">
+        <div class="buttons">
+			<input type="text" id="searchBox" onkeyup="filterSongs()" placeholder="请输入关键字进行检索...">
+        </div>
+        <ul class="song-list" id="songList">   
+            <li class="song-item">
+                <div class="song-title">危险派对</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">我的悲伤是水做的</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Endwalker - Footfalls</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">踊</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">夏霞</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">群青</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">心做し</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">たばこ</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">天ノ弱</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">小夜子</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">アイドル</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">打上花火</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">再会-春卷饭ver</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">奏 (かなで)</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">ギラギラ</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">カラフル</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">カタオモイ</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">magnet</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">アヤノの幸福理論</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">独りんぼエンヴィー</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">食虫植物</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">アイディスマイル</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Departures</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">and I'm home</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">曖昧劣情Lover</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Loveit?</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">可愛くてごめん</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">星座になれたら</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">ニワカアメ</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">真夜中のドア</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">KING</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">CH4NGE</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Ditto-日文填词</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">人マニア</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">夏と罰（下）</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">回る空うさぎ</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">ドライフラワー</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Lemon</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">少女レイ</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">いかないで</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">WATER BLUE NEW WORLD</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">ユメノトビラ</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Snow halation</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">SUNNY DAY SONG</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">僕たちはひとつの光</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">アイディスマイル(id smile)</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">ヴァンパイア(吸血鬼)</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">天之弱 piano ver.</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">暧昧劣情Lover</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">ココロ（心奇迹）</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">奏(かなで)</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">コネクト(羁绊)</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">秒針を噛む</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Ham</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">MY CLEMATIS（铁线莲）</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">冬がくれた予感</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">美少女無罪</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">肃清！萝莉神的安魂曲</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Spade</div>
+                <div class="song-artist"></div>
+            </li>
+            <li class="song-item">
+                <div class="song-title">Virtual to LIVE</div>
+                <div class="song-artist"></div>
+            </li>            
+            <!-- More songs can be added here -->
+        </ul>
+    </div>
+</body>
+</html>
