@@ -30,6 +30,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	var stopButton = document.getElementById("stopButton");
 	var progressBar = document.getElementById("progressBar");
 	var progress = document.getElementById("progress");
+	var volumeSlider = document.getElementById("volumeSlider")
+
+	audio.volume = 0.3;
 
 	playButton.addEventListener("click", function() {
 		pauseButton.style.display = 'block';
@@ -56,6 +59,10 @@ document.addEventListener("DOMContentLoaded", function() {
 		var offsetX = event.clientX - rect.left;
 		var percentage = offsetX / progressBar.offsetWidth;
 		audio.currentTime = percentage * audio.duration;
+	});
+	
+	volumeSlider.addEventListener("input", function() {
+		audio.volume = volumeSlider.value / 100;
 	});
 });
 

@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elim-歌手歌单</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.min.css">
 	<link rel="icon" href="favicon.png" type="image/x-icon">
 </head>
 <body>
 	<style>
 	</style>
-	<script src="js/index.js"></script>
-	<script src="js/index-script.js"></script>
+	<script src="js/index-script.min.js"></script>
+	<script src="js/index.min.js"></script>
 	<script>
 	</script>
     <header>
@@ -37,6 +37,10 @@
                 <button id="playButton" class="button">播放试听</button>
                 <button id="pauseButton" class="button">暂停</button>
                 <button id="stopButton" class="button">停止</button>
+            </div>
+            <div class="volume-control">
+                <label for="volumeSlider" style="width: 25%;">音量:</label>
+                <input type="range" id="volumeSlider" min="0" max="100" value="30">
             </div>
         </div>
     </header>

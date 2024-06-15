@@ -41,6 +41,18 @@ async function loadJSON() {
         });
     } catch (error) {
         console.error('Error loading JSON data:', error);
+        const response = await fetch('../json/error.json');
+        const data = await response.json();
+        
+        const singer = document.getElementById('singer')
+        const singerDetails = document.getElementById('singer-details')
+        const songList = document.getElementById('songList');
+        singer.textContent = ''; // 清空现有内容
+        singerDetails.innerHTML = ''; // 清空现有内容
+        songList.innerHTML = ''; // 清空现有内容
+        
+        singer.textContent = data.singer;
+        singerDetails.textContent = data.detail;
     }
 }
 
