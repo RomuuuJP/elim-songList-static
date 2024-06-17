@@ -10,6 +10,8 @@
         {"title": "紫皮大蒜波比", "des": "女歌手，擅长粤语，国语，少量日文，少量英文。", "url":"singer?singer=zipdsbb"},
         {"title": "糖糖（谴呪）", "des": "女歌手，ボカロ，擅长日文曲，少量中文，英文曲。", "url":"singer?singer=tangtang"},
         {"title": "牛奶绵绵冰", "des": "男歌手，为热血日文曲而生的男人。", "url":"singer?singer=niunmmb"},
-        {"title": "雀尾岫", "des": "女歌手，会国语，粤语，闽南语，古风国风，rap，英文，日文等等。", "url":"singer?singer=quewx"}
+        {"title": "雀尾岫", "des": "女歌手，会国语，粤语，闽南语，古风国风，rap，英文，日文等等。", "url":"singer?singer=quewx"},
+        {"title": "阿怼", "des": "男歌手，华语流行，古风，英文。", "url":"singer?singer=adui"},
+        {"title": "姫诗鹤", "des": "女歌手，华语，是zhen3诗鹤不是ji1诗鹤。。", "url":"singer?singer=zhensh"}
     ]
 }

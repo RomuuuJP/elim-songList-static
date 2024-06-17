@@ -1,0 +1,8 @@
+{
+	"singer": "麻薯（砂仁如麻薯）", 
+	"detail": "template",
+    "url": "singer?mashu",
+    "audio": "../audios/mashu.mp3",
+	"songs": [
+        {"title": "template", "artist": ""}
+    ]}
