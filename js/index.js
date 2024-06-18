@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	var progress = document.getElementById("progress");
 	var volumeSlider = document.getElementById("volumeSlider")
 
-	audio.volume = 0.3;
+    volumeSlider.value = localStorage.getItem('volume') || '30'; 
+    audio.volume = volumeSlider.value / 100;
 
 	playButton.addEventListener("click", function() {
 		pauseButton.style.display = 'block';
@@ -63,6 +64,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	volumeSlider.addEventListener("input", function() {
 		audio.volume = volumeSlider.value / 100;
+		// 将音量存储在 Local Storage 中
+		localStorage.setItem('volume', volumeSlider.value);
 	});
 });
 
@@ -81,6 +84,8 @@ function toggleTheme() {
 document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('theme') || 'light'; // 默认主题为 light
     document.documentElement.setAttribute('data-theme', savedTheme);
+    //const savedVolume = localStorage.getItem('volume') || '30'; // 默认音量为 30
+	//document.documentElement.setAttribute()
 });
 
 // 定义左滑返回
