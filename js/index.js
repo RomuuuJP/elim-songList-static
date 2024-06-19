@@ -32,8 +32,13 @@ document.addEventListener("DOMContentLoaded", function() {
 	var progress = document.getElementById("progress");
 	var volumeSlider = document.getElementById("volumeSlider")
 
-    volumeSlider.value = localStorage.getItem('volume') || '30'; 
-    audio.volume = volumeSlider.value / 100;
+	const userAgent = navigator.userAgent.toLowerCase();
+	if (/mobile|android|iphone|ipad|tablet/i.test(userAgent)) {
+		document.querySelector('.volume-control').style.display = 'none';
+	} else {
+		volumeSlider.value = localStorage.getItem('volume') || '30'; 
+		audio.volume = volumeSlider.value / 100;
+	}
 
 	playButton.addEventListener("click", function() {
 		pauseButton.style.display = 'block';
